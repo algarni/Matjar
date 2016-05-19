@@ -14,10 +14,12 @@ namespace Matjar.Controllers
     
     public class HomeController : Controller
     {
+        private MatjarDbContext db = new MatjarDbContext();
 
         public ActionResult Index()
         {
-            return View();
+            var products = db.Products.Select(p => p).Where(p => p.IsPublished == true && p.ShowOnHomePage == true).ToList();
+            return View(products);
         }
 
         public ActionResult About()

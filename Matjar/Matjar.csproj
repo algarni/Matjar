@@ -48,6 +48,10 @@
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="ImageResizer, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ImageResizer.4.0.5\lib\net45\ImageResizer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -172,16 +176,22 @@
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="DataContexts\IdentityDbContext.cs" />
-    <Compile Include="DataContexts\IdentityMigrations\201604081656158_InitialCreate.cs" />
-    <Compile Include="DataContexts\IdentityMigrations\201604081656158_InitialCreate.Designer.cs">
-      <DependentUpon>201604081656158_InitialCreate.cs</DependentUpon>
+    <Compile Include="DataContexts\IdentityMigrations\201604271301214_InitialCreate.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201604271301214_InitialCreate.Designer.cs">
+      <DependentUpon>201604271301214_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="DataContexts\IdentityMigrations\Configuration.cs" />
     <Compile Include="DataContexts\MatjarDbContext.cs" />
-    <Compile Include="DataContexts\MatjarMigrations\201604081658580_InitialCreate.cs" />
-    <Compile Include="DataContexts\MatjarMigrations\201604081658580_InitialCreate.Designer.cs">
-      <DependentUpon>201604081658580_InitialCreate.cs</DependentUpon>
+    <Compile Include="DataContexts\MatjarMigrations\201604271316103_InitialCreate.cs" />
+    <Compile Include="DataContexts\MatjarMigrations\201604271316103_InitialCreate.Designer.cs">
+      <DependentUpon>201604271316103_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\MatjarMigrations\201604291159382_AddImageName.cs" />
+    <Compile Include="DataContexts\MatjarMigrations\201604291159382_AddImageName.Designer.cs">
+      <DependentUpon>201604291159382_AddImageName.cs</DependentUpon>
     </Compile>
     <Compile Include="DataContexts\MatjarMigrations\Configuration.cs" />
     <Compile Include="Global.asax.cs">
@@ -195,8 +205,12 @@
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderItem.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ShoppingCartItemModel.cs" />
+    <Compile Include="Models\ShoppingCartModel.cs" />
+    <Compile Include="Models\ShoppingCartViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\ProductViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-rtl.css" />
@@ -211,6 +225,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="App_Code\GlyphIcon.cshtml" />
     <None Include="Scripts\jquery-2.2.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -266,11 +281,18 @@
     <Content Include="Views\Categories\Details.cshtml" />
     <Content Include="Views\Categories\Edit.cshtml" />
     <Content Include="Views\Categories\Index.cshtml" />
+    <Content Include="Views\Products\Create.cshtml" />
+    <Content Include="Views\Products\Delete.cshtml" />
+    <Content Include="Views\Products\Details.cshtml" />
+    <Content Include="Views\Products\Edit.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Products\ItemDetail.cshtml" />
+    <Content Include="Views\ShoppingCart\Index.cshtml" />
+    <Content Include="Views\ShoppingCart\CartWidget.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Images\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -278,11 +300,14 @@
     <Content Include="Scripts\jquery-2.2.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="DataContexts\IdentityMigrations\201604081656158_InitialCreate.resx">
-      <DependentUpon>201604081656158_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="DataContexts\IdentityMigrations\201604271301214_InitialCreate.resx">
+      <DependentUpon>201604271301214_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DataContexts\MatjarMigrations\201604081658580_InitialCreate.resx">
-      <DependentUpon>201604081658580_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="DataContexts\MatjarMigrations\201604271316103_InitialCreate.resx">
+      <DependentUpon>201604271316103_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\MatjarMigrations\201604291159382_AddImageName.resx">
+      <DependentUpon>201604291159382_AddImageName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

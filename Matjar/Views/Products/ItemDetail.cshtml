@@ -1,0 +1,52 @@
+﻿@model Matjar.Models.Product
+
+@{
+    ViewBag.Title = "ItemDetail";
+}
+
+<div class="row">
+    <!-- Beginning of Product Slider -->
+    <div class="col-sm-6">
+        @foreach (var item in Model.Images)
+        {
+            <img src="~/Content/Images/x580x420/@item.ImageName" class="img-responsive prod-img" alt="@item.ImageDescription" title="@item.ImageTitle">
+        }
+    </div>
+    <!-- End of Product Slider -->
+    <!-- Beginning of Product Descripiton -->
+    <div class="col-sm-6">
+        <h1>@Html.DisplayFor(model => model.ProductName)</h1>
+        <div class="price">@Html.DisplayFor(model => model.Price)</div>
+        <div class="description">
+            You can edit this product via the Builder area (click here to edit your products).Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Aenean et vehicula velit. Pellentesque auctor magna nisl, non convallis orci tincidunt
+            iaculis. Nam laoreet sollicitudin mauris, at viverra eros tempor vel.
+        </div>
+        @*<form class="form-horizontal" action="post">
+            <input type="hidden" name="ProductId" value="5655" />
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="quantity">Quantity</label>
+                <select class="col-sm-9 form-control" id="quantity">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                </select>
+            </div>*@
+            @using (Html.BeginForm("AddToCart", "ShoppingCart"))
+            {
+                <div class="pull-right">
+                    @Html.HiddenFor(x => x.ProductId)
+                    @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+                    <input type="submit" class="btn btn-success" value="Add to cart" />
+                </div>
+            }
+        @*</form>*@
+    </div>
+    <!-- End of Product Descripiton -->
+</div>

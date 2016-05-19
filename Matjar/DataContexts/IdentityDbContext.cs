@@ -11,7 +11,7 @@ namespace Matjar.DataContexts
     public class IdentityDbContext : IdentityDbContext<User>
     {
         public IdentityDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("MatjarConnectionString", throwIfV1Schema: false)
         {
         }
 

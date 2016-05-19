@@ -4,6 +4,10 @@ namespace Matjar.Models
 {
     public class Product
     {
+        public Product()
+        {
+            Images = new List<Image>();
+        }
         public int ProductId { get; set; }
         public string ProductName { get; set; }
         public string ProductDescription { get; set; }

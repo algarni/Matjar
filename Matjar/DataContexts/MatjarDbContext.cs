@@ -16,7 +16,7 @@ namespace Matjar.DataContexts
         public DbSet<Image> Images { get; set; }
 
         public MatjarDbContext()
-            : base("DefaultConnection")
+            : base("MatjarConnectionString")
         {
         }
 

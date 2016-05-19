@@ -13,7 +13,7 @@ namespace Matjar.DataContexts.IdentityMigrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201604081656158_InitialCreate"; }
+            get { return "201604271301214_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

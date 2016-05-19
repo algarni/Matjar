@@ -22,3 +22,27 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.thumbnail {
+    padding: 0;
+}
+
+    .thumbnail img {
+        width: 100%;
+    }
+
+    .thumbnail .caption-full {
+        padding: 9px;
+        color: #333;
+    }
+
+.ratings {
+    padding-right: 10px;
+    padding-left: 10px;
+    color: #d17581;
+}
+
+img.prod-img{
+    width: 460px;
+    height: 335px;
+}

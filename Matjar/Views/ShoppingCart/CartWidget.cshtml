@@ -1,0 +1,19 @@
+﻿@model Matjar.Models.ShoppingCartModel
+<ul class="nav navbar-nav navbar-left">
+    <li>
+        <p class="navbar-text">
+            <b>Cart:</b>
+            @Model.Items.Sum(x => x.Quantity) item(s),
+            @Model.GetCartTotal().ToString("c")
+        </p>
+    </li>
+
+    <li>
+        @Html.ActionLink("Checkout", "Index", "ShoppingCart",
+        new { returnUrl = Request.Url.PathAndQuery },
+        new { @class = "btn btn-default" })
+    </li>
+
+
+</ul>
+
